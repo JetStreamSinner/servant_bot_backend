@@ -1,0 +1,57 @@
+# Servant bot backend
+
+Its proxy service which routing tasks to service, which can do this tasks
+
+
+# Communication API
+
+- Proxy service take url of worker services from database. 
+- After that its can show all connected service by request to ```/services_list``` route. 
+- Client can get more information about particular service and state machine which
+this service should use with this service by request to ```/service_info/{id}``` route.
+- Client can add task by request to ```/add_task``` route.
+
+# API specification
+
+### /services_list
+
+Its route return the array of the JSON objects, which described above
+
+```json
+{
+  "service_id": 0,
+  "service_name": "image_transform_service"
+}
+```
+
+### /service_info/{id}
+
+Its route return more information about service with particular {id}
+
+```json
+{
+  "service_id": 0, // int
+  "service_name": "image_transform_service", // str
+  "service_description": "description" // str.  Some user friendly description of availability of service,
+  "state_machine": [
+    "command 1",
+    "command 2",
+    "command 3",
+    "command 4",
+    ...,
+    "command N"
+  ] // array. List of predefined commands. Like get_text, get_image_info, get_sound_info, etc.
+}
+```
+
+### /add_task
+
+Its route put task arguments in load balancer and awaiting response
+
+```json
+{
+  "service_id": 0, // int. Target service id.
+  "args": [...] // array. Task argument
+}
+
+```
