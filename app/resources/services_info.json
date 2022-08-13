@@ -1,0 +1,41 @@
+[
+  {
+    "service_id": 0,
+    "service_name": "service_1",
+    "service_description": "description",
+    "state_machine": [
+      "command 1",
+      "command 2",
+      "command 3",
+      "command 4",
+      "command N"
+    ]
+  },
+  {
+    "service_id": 1,
+    "service_name": "service_2",
+    "service_description": "description",
+    "state_machine": [
+      "command 1",
+      "command 2",
+      "command 3"
+    ]
+  },
+  {
+    "service_id": 2,
+    "service_name": "service_3",
+    "service_description": "description",
+    "state_machine": [
+      "command 1",
+      "command 2"
+    ]
+  },
+  {
+    "service_id": 4,
+    "service_name": "service_4",
+    "service_description": "description",
+    "state_machine": [
+      "command 1"
+    ]
+  }
+]

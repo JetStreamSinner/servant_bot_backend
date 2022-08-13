@@ -3,8 +3,8 @@ from typing import List
 
 
 class ServiceDeclaration(BaseModel):
-    id: int = Field(title="Service id")
-    service_title: str = Field(title="Service title")
+    service_id: int = Field(title="Service id")
+    service_name: str = Field(title="Service title")
 
 
 class Service(ServiceDeclaration):
