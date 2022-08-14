@@ -1,20 +1,8 @@
-from typing import Dict, Any
 from fastapi.middleware.cors import CORSMiddleware
 
 from fastapi import FastAPI
 from app.api.routes.api import router as api_router
-
-
-def get_app_settings() -> Dict[str, Any]:
-    title = "Router service"
-    docs_url = "/docs"
-    return {
-        "application_kwargs": {
-            "title": title,
-            "docs_url": docs_url
-        },
-        "allowed_hosts": ["*"]
-    }
+from app.core.settings.app_settings import get_app_settings
 
 
 def get_application() -> FastAPI:
