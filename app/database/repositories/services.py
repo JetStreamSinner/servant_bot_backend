@@ -7,8 +7,8 @@ from app.models.schemas.service import ServiceDeclaration, Service
 class ServicesRepository(BaseRepository):
 
     def get_services_list(self) -> List[ServiceDeclaration]:
-        return [ServiceDeclaration(id=service["service_id"],
-                                   service_title=service["service_name"]) for service in self.source]
+        return [ServiceDeclaration(service_id=service["service_id"],
+                                   service_name=service["service_name"]) for service in self.source]
 
     def get_service_info(self, service_id: int) -> Service:
         print(self.source[service_id])
