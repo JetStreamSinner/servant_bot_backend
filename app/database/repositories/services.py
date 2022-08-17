@@ -11,7 +11,6 @@ class ServicesRepository(BaseRepository):
                                    service_name=service["service_name"]) for service in self.source]
 
     def get_service_info(self, service_id: int) -> Service:
-        print(self.source[service_id])
         return self.source[service_id]
 
     def add_task(self, service_id: int, args: []):
