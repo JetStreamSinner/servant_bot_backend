@@ -1,11 +1,15 @@
+import json
+from typing import Dict, Any
+
+
 class ServiceInfoProvider:
 
-    def __init__(self):
-        self.uri = ""
-        self.source = {}
+    def __init__(self, uri: str):
+        self.uri = uri
 
-    def read(self, uri: str):
+    def read(self) -> Any:
         raise RuntimeError("Need to implement")
 
-    def get_as_json(self):
-        return self.source
+    def get_as_json(self) -> Any:
+        # Using caching may be?
+        return self.read()

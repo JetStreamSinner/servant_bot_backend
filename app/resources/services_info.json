@@ -3,22 +3,44 @@
     "service_id": 0,
     "service_name": "service_1",
     "service_description": "description",
-    "state_machine": [
-      "command 1",
-      "command 2",
-      "command 3",
-      "command 4",
-      "command N"
+    "arguments": [
+      {
+        "argument_name": "image",
+        "argument_description": "Image for rotation, represented in base64",
+        "type": "str"
+      },
+      {
+        "argument_name": "width",
+        "argument_description": "Target width",
+        "type": "int"
+      },
+      {
+        "argument_name": "height",
+        "argument_description": "Target height",
+        "type": "int"
+      }
     ]
   },
   {
     "service_id": 1,
     "service_name": "service_2",
     "service_description": "description",
-    "state_machine": [
-      "command 1",
-      "command 2",
-      "command 3"
+    "arguments": [
+      {
+        "argument_name": "image",
+        "argument_description": "Image for rotation, represented in base64",
+        "type": "str"
+      },
+      {
+        "argument_name": "width",
+        "argument_description": "Target width",
+        "type": "int"
+      },
+      {
+        "argument_name": "height",
+        "argument_description": "Target height",
+        "type": "int"
+      }
     ]
   },
   {
@@ -26,8 +48,21 @@
     "service_name": "service_3",
     "service_description": "description",
     "state_machine": [
-      "command 1",
-      "command 2"
+      {
+        "argument_name": "image",
+        "argument_description": "Image for rotation, represented in base64",
+        "type": "str"
+      },
+      {
+        "argument_name": "width",
+        "argument_description": "Target width",
+        "type": "int"
+      },
+      {
+        "argument_name": "height",
+        "argument_description": "Target height",
+        "type": "int"
+      }
     ]
   },
   {
@@ -35,7 +70,21 @@
     "service_name": "service_4",
     "service_description": "description",
     "state_machine": [
-      "command 1"
+      {
+        "argument_name": "image",
+        "argument_description": "Image for rotation, represented in base64",
+        "type": "str"
+      },
+      {
+        "argument_name": "width",
+        "argument_description": "Target width",
+        "type": "int"
+      },
+      {
+        "argument_name": "height",
+        "argument_description": "Target height",
+        "type": "int"
+      }
     ]
   }
 ]
