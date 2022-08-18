@@ -39,6 +39,7 @@ class DatabaseProvider(ServiceInfoProvider):
         service_request = requests.get(url=info_url)
         service_info = service_request.json()
         service_info["service_id"] = service_id
+        service_info["service_url"] = service_url
         return service_info
 
     def read(self) -> Any:
