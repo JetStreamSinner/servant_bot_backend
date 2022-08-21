@@ -1,6 +1,7 @@
 from typing import List
 
 from fastapi import APIRouter
+from fastapi import HTTPException
 
 from app.models.schemas.service import ServiceInner, ServiceOuter, ServiceDeclaration
 from app.models.schemas.task import Task
@@ -18,14 +19,19 @@ async def services_list_handler():
 
 @services_router.get(path="/service_info/{service_id}", response_model=ServiceOuter)
 async def services_list_handler(service_id: int):
-    return services_repository.get_service_info(service_id=service_id)
+    try:
+        return services_repository.get_service_info(service_id=service_id)
+    except RuntimeError:
+        raise HTTPException(status_code=400, detail="Unknown service id")
 
 
 @services_router.post(path="/add_task/{service_id}")
 async def services_list_handler(task: Task):
-    service_info = services_repository.get_service_info(service_id=task.service_id)
-    # TODO Should parse like ServiceInner model
-    service_url = service_info["service_url"]
+    try:
+        service_info = services_repository.get_service_info(service_id=task.service_id)
+    except RuntimeError:
+        raise HTTPException(status_code=400, detail="Unknown service id")
+    service_url = service_info.service_url
     handler = TaskHandler()
     task_result = handler.push_task(service_url=service_url, payload=task.arguments)
     return task_result
