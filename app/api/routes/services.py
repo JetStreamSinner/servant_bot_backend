@@ -7,7 +7,7 @@ from app.models.schemas.service import ServiceInner, ServiceOuter, ServiceDeclar
 from app.models.schemas.task import Task
 
 from app.api.dependencies.services import services_repository
-from app.api.dependencies.task import TaskHandler
+from app.api.dependencies.task import push_task_to_service
 
 services_router = APIRouter()
 
@@ -32,6 +32,4 @@ async def services_list_handler(task: Task):
     except RuntimeError:
         raise HTTPException(status_code=400, detail="Unknown service id")
     service_url = service_info.service_url
-    handler = TaskHandler()
-    task_result = handler.push_task(service_url=service_url, payload=task.arguments)
-    return task_result
+    return push_task_to_service(service_url=service_url, payload=task.arguments)
