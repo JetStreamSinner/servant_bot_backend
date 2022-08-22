@@ -10,6 +10,14 @@ from app.database.tables.base import Base
 from app.database.tables.services import Services
 
 
+def check_service_availability(url: str) -> bool:
+    try:
+        _ = requests.get(url)
+    except requests.exceptions.ConnectionError:
+        return False
+    return True
+
+
 class DatabaseProvider(ServiceInfoProvider):
     engine = None
 
@@ -46,5 +54,5 @@ class DatabaseProvider(ServiceInfoProvider):
         session = Session(bind=self.engine)
         services_endpoints = session.query(Services.id, Services.uri).all()
         services_info = [self.request_service_info(service_id, service_uri) for (service_id, service_uri) in
-                         services_endpoints]
+                         services_endpoints if check_service_availability(url=service_uri)]
         return services_info
