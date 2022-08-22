@@ -3,7 +3,7 @@ from typing import List
 from fastapi import APIRouter
 from fastapi import HTTPException
 
-from app.models.schemas.service import ServiceInner, ServiceOuter, ServiceDeclaration
+from app.models.schemas.service import ServiceOuter, ServiceDeclaration
 from app.models.schemas.task import Task
 
 from app.api.dependencies.services import services_repository
