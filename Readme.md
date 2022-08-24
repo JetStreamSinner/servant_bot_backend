@@ -33,14 +33,18 @@ Its route return more information about service with particular {id}
   "service_id": 0, // int
   "service_name": "image_transform_service", // str
   "service_description": "description" // str.  Some user friendly description of availability of service,
-  "state_machine": [
-    "command 1",
-    "command 2",
-    "command 3",
-    "command 4",
-    ...,
-    "command N"
-  ] // array. List of predefined commands. Like get_text, get_image_info, get_sound_info, etc.
+  "arguments": [
+    {
+      "argument_name": "argument_name",
+      "argument_description": "description",
+      "type": "image"
+    },
+    {
+      "argument_name": "argument_name2",
+      "argument_description": "description",
+      "type": "int"
+    }
+  ] // array. List of arguments, which service is receive
 }
 ```
 
