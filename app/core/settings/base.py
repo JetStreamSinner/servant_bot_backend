@@ -8,7 +8,14 @@ class DatasourceTypes(Enum):
     database: str = "db"
 
 
+class AppEnvTypes(Enum):
+    production: str = "prod"
+    development: str = "development"
+    test: str = "test"
+
+
 class BaseAppSettings(BaseSettings):
+    app_env: AppEnvTypes = AppEnvTypes.development
 
     class Config:
         env_file = ".env"
