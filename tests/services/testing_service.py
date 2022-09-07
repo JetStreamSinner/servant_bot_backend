@@ -8,14 +8,14 @@ class ServiceResponse(BaseModel):
 
 
 class ServiceInput(BaseModel):
-    argument1: str
-    argument2: str
+    argument1: int
+    argument2: int
 
 
-test_service = FastAPI()
+fake_service = FastAPI()
 
 
-@test_service.get("/me")
+@fake_service.get("/me")
 def test_service_info_handler():
     return {
         "service_name": "Test service",
@@ -35,7 +35,7 @@ def test_service_info_handler():
     }
 
 
-@test_service.post("/do_job", response_model=ServiceResponse)
+@fake_service.post("/do_job", response_model=ServiceResponse)
 def root_handler(job_info: ServiceInput):
     first_component = job_info.argument1
     second_component = job_info.argument2
