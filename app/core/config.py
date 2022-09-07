@@ -2,7 +2,7 @@ from app.core.settings.app import AppSettings
 from app.core.settings.app_development_settings import AppDevelopmentSettings
 from app.core.settings.app_test_settings import AppTestSettings
 
-from app.core.settings.base import AppEnvTypes
+from app.core.settings.base import AppEnvTypes, BaseAppSettings
 
 environments = {
     AppEnvTypes.development: AppDevelopmentSettings,
@@ -11,6 +11,6 @@ environments = {
 }
 
 
-def get_app_settings(app_env: AppEnvTypes) -> AppSettings:
-    config = environments[app_env]
+def get_app_settings() -> AppSettings:
+    config = environments[BaseAppSettings().app_env]
     return config()
