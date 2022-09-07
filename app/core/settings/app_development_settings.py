@@ -4,4 +4,4 @@ from app.core.settings.app import DatasourceTypes
 
 class AppDevelopmentSettings(AppSettings):
     service_source_uri = "sqlite:///app/resources/develop_database.db"
-    source_type = DatasourceTypes.database
+    service_source_type = DatasourceTypes.database
