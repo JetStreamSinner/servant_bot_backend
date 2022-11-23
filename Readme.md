@@ -1,4 +1,4 @@
-# Servant bot backend
+# Utils bot backend
 
 Its proxy service which routing tasks to service, which can do this tasks
 
